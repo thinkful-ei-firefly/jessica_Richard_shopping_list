@@ -11,8 +11,11 @@ function handleAddItem(){
     e.preventDefault();
     let input = $('#shopping-list-entry').val();
     $('#shopping-list-entry').val('');
-  //update the store
-  //call render
+    //update the store
+    console.log(input);
+    store.push( {name: input, completed: false} );
+    //call render
+    renderShoppingList();
   });
 }
 
@@ -38,7 +41,7 @@ function handleToggleItem(){
 
 function renderShoppingList() {
   const html = generateShoppingListElements(store);
-  $('ul').html(html);  
+  $('.shopping-list').html(html);  
 }
 
 function generateShoppingItemHtml(item, itemIndex){
@@ -77,4 +80,4 @@ function main(){
 }
 
 // Run the `main` function when DOM loads:
-$(main);
+main();
